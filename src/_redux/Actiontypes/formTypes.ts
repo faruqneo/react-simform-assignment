@@ -1,0 +1,4 @@
+export enum FormTypes {
+    FETCH_FORM_REQUEST = "FETCH_FORM_REQUEST",
+    ADD_FORM_REQUEST = "ADD_FORM_REQUEST",
+  }

@@ -1,0 +1,4 @@
+export enum answertypes {
+    ADD_ANSWER_REQUEST = "ADD_ANSWER_REQUEST",
+    FETCH_ANSWER_REQUEST = "FETCH_ANSWER_REQUEST",
+  }
