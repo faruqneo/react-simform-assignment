@@ -6,13 +6,13 @@ const FromHome = lazy(() => import("./componets/Home"));
 const FromPage = lazy(() => import('./componets/FromPage'));
 const FromList = lazy(() => import('./componets/List'))
 
-const Loader = () => (<Spinner animation="border" role="status">
+const Loader = (<Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
                 </Spinner>)
 
 const router = () => {
   return (
-    <Suspense fallback={<>Loading</>}>
+    <Suspense fallback={Loader}>
         <React.Fragment>
           <Switch>
             <Route exact path={"/"} component={FromHome} />

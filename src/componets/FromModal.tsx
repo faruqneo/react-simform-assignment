@@ -28,7 +28,10 @@ const FromModal = ({show, handleClose, submitFrom, name}: any) => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Question</Form.Label>
               <Form.Control type="text" placeholder="Enter title" {...register("title", { required: true })}/>
-              {errors.title?.type === 'required' && <div className="alert alert-danger">question is required</div>}
+              {errors.title?.type === 'required' && <Form.Text className="text-muted">
+              question is required
+      </Form.Text>}
+              
               <Form.Label>Select answer type</Form.Label>
               <Form.Select aria-label="Default select example" {...register("answerType", { required: true })} onChange={handleChange}>
               <option value={1}>Text</option>
@@ -38,13 +41,23 @@ const FromModal = ({show, handleClose, submitFrom, name}: any) => {
             {multiple && <>
               <Form.Label>Add answer</Form.Label>
               <Form.Control type="text" placeholder="Enter first choice" {...register("answerOptions.first_choice", { required: true })} />
-              {errors.answerOptions?.first_choice?.type === 'required' && <div className="alert alert-danger">first option is required</div>}
+              {errors.answerOptions?.first_choice?.type === 'required' && <Form.Text className="text-muted">
+              first option is required
+      </Form.Text>}
               <Form.Control type="text" placeholder="Enter second choice" {...register("answerOptions.second_choice", { required: true })} />
-              {errors.answerOptions?.second_choice?.type === 'required' && <div className="alert alert-danger">second option is required</div>}
+              {errors.answerOptions?.second_choice?.type === 'required' && <Form.Text className="text-muted">
+              second option is required
+      </Form.Text>}
+          
               <Form.Control type="text" placeholder="Enter third choice" {...register("answerOptions.third_choice", { required: true })} />
-              {errors.answerOptions?.third_choice?.type === 'required' && <div className="alert alert-danger">third option is required</div>}
+              {errors.answerOptions?.third_choice?.type === 'required' && <Form.Text className="text-muted">
+              third option is required
+      </Form.Text>}
+              
               <Form.Control type="text" placeholder="Enter forth choice" {...register("answerOptions.forth_choice", { required: true })} />
-              {errors.answerOptions?.forth_choice?.type === 'required' && <div className="alert alert-danger">forth option is required</div>}
+              {errors.answerOptions?.forth_choice?.type === 'required' && <Form.Text className="text-muted">
+              forth option is required
+      </Form.Text>}
             </>}
               <br/>
               {/* <Button variant="success" disabled={!errors}>More Questions</Button>{' '} */}

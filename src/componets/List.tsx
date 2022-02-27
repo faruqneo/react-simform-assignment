@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Form } from '../models';
 import { push } from 'connected-react-router';
 import Moment from 'react-moment';
@@ -18,7 +18,7 @@ const List = () => {
   const changeUrl = (url: string) => dispatch(push(url));
   return (
     <div>
-    {form.length ? <Table striped bordered hover>
+    {form.length ? <><Table striped bordered hover>
     <thead>
       <tr>
         <th>#</th>
@@ -37,7 +37,7 @@ const List = () => {
         <td>{answer.filter((ele: any) => ele.form_id === item?.id).length}</td>
       </tr>))}
     </tbody>
-  </Table>: <div>no data</div>}</div>
+  </Table><Button variant="primary" onClick={() => changeUrl(`/`)}>Go back to home page</Button>{' '}</>: <div>no data</div>}</div>
   )
 }
 

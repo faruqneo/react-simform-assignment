@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Answer } from '../models';
 import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 import { addAnswerRequest } from '../_redux/actions/answerActions/answerActions';
 
-export default function FromPage({match}: any) {
+const FromPage = ({match}: any) => {
   const dispatch = useDispatch();
   const [isSubmit, setIsSubmit] = useState(false);
   const [selectOption, setSelectOption] = useState({firstName: false, secondName: false, thirdName: false, forthName: false});
@@ -35,7 +36,7 @@ export default function FromPage({match}: any) {
     // console.log(ans);
     dispatch(addAnswerRequest(ans));
     setIsSubmit(true);
-    setTimeout(() => setIsSubmit(false), 2000)
+    // setTimeout(() => setIsSubmit(false), 2000)
   }
 
   const handleChange = ({target}: any) => {
@@ -44,10 +45,13 @@ export default function FromPage({match}: any) {
     Object.keys(obj).filter(e => e !== target.id).map(v => obj[v] = false);
     setSelectOption(obj);
   }
+  const changeUrl = (url: string) => dispatch(push(url));
 
   return (
     <>
-    <Form>
+    {isSubmit ? <Alert variant="primary" onClose={() => setIsSubmit(false)} dismissible>
+      <Alert.Heading>You have successfully save your answer, <a className="alert-link" onClick={() => changeUrl(`/`)}>Click here to go back to home page.</a></Alert.Heading>
+         </Alert>: <Form>
     <Form.Label>{selectedData?.name}</Form.Label>
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>{selectedData?.questions[0].title}</Form.Label>
@@ -86,10 +90,9 @@ export default function FromPage({match}: any) {
     <Button variant="primary" type="button" onClick={handleSubmit(onSubmit)}>
       Submit
     </Button>
-</Form>
-    {isSubmit && <Alert variant="primary" onClose={() => setIsSubmit(false)} dismissible>
-      <Alert.Heading>You have successfully save your answer!</Alert.Heading>
-         </Alert>}
+</Form>}
     </>
   )
 }
+
+export default FromPage;

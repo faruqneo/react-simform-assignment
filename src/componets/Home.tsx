@@ -3,16 +3,16 @@ import { Alert, Button, Form } from "react-bootstrap";
 import FromModal from "./FromModal";
 import { useDispatch } from "react-redux";
 import { Form as Element, Question } from "../models";
-import { v4 as uuidv4 } from 'uuid';
 import { addQuestionRequest } from "../_redux/actions/formActions/formActions";
 import { push } from "connected-react-router";
+import { random } from "../helper";
 
 const Home = () => {
   const [modal, setModal] = useState(false);
   const [fromName, setFromName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
-  const uniqueId = uuidv4();
+  const uniqueId: string = random.toString();
 
 const handleClose = () => setModal(!modal);
 const submitFrom = (data: Question) => {
@@ -32,8 +32,9 @@ const changeUrl = (url: string) => dispatch(push(url));
 
   return (
     <div>
+      <h1 className="fromHear">Home Page</h1><br/>
       <Form.Label>From Name</Form.Label>
-       <Form.Control type="text" placeholder="Enter from name" name="fromName" value={fromName} onChange={handleChangeName} />
+      <Form.Control type="text" placeholder="Enter from name" name="fromName" value={fromName} onChange={handleChangeName} />
       <Button variant="primary" onClick={handleClose} disabled={!fromName}>Add Question</Button>{' '}
       <a className="alert-link" onClick={() => changeUrl(`/surveylist/page`)}>Click here to check list page</a>
       {modal && <FromModal show={modal} handleClose={handleClose} submitFrom={submitFrom} name={fromName} />}
