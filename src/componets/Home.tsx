@@ -12,7 +12,7 @@ const Home = () => {
   const [fromName, setFromName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
-  const uniqueId: string = random.toString();
+  const uniqueId: string = random(0, 4).toString();
 
 const handleClose = () => setModal(!modal);
 const submitFrom = (data: Question) => {

@@ -51,7 +51,7 @@ const FromPage = ({match}: any) => {
     <>
     {isSubmit ? <Alert variant="primary" onClose={() => setIsSubmit(false)} dismissible>
       <Alert.Heading>You have successfully save your answer, <a className="alert-link" onClick={() => changeUrl(`/`)}>Click here to go back to home page.</a></Alert.Heading>
-         </Alert>: <Form>
+         </Alert>: <><Form>
     <Form.Label>{selectedData?.name}</Form.Label>
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>{selectedData?.questions[0].title}</Form.Label>
@@ -90,7 +90,7 @@ const FromPage = ({match}: any) => {
     <Button variant="primary" type="button" onClick={handleSubmit(onSubmit)}>
       Submit
     </Button>
-</Form>}
+</Form><br/></>}
     </>
   )
 }
