@@ -24,7 +24,8 @@ const submitFrom = (data: Question) => {
   }
   handleClose();
   dispatch(addQuestionRequest(obj));
-  setIsSubmit(true);
+  alert('You have successfully save from!, Check on list page');
+  // setIsSubmit(true);
   // setTimeout(() => setIsSubmit(false), 2000)
 }
 const handleChangeName = ({target}: any) =>  setFromName(target.value);
