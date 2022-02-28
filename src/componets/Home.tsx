@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import FromModal from "./FromModal";
 import { useDispatch } from "react-redux";
@@ -8,11 +8,11 @@ import { push } from "connected-react-router";
 import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
+  const uniqueId: string = uuidv4();
   const [modal, setModal] = useState(false);
   const [fromName, setFromName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
-  const uniqueId: string = uuidv4();
 
 const handleClose = () => setModal(!modal);
 const submitFrom = (data: Question) => {
