@@ -39,9 +39,9 @@ const changeUrl = (url: string) => dispatch(push(url));
       <a className="alert-link" onClick={() => changeUrl(`/surveylist/page`)}>Click here to check list page</a>
       {modal && <FromModal show={modal} handleClose={handleClose} submitFrom={submitFrom} name={fromName} />}
 
-      {isSubmit && <Alert variant="primary" onClose={() => setIsSubmit(false)} dismissible>
+      {/* {isSubmit && <Alert variant="primary" onClose={() => setIsSubmit(false)} dismissible>
       <Alert.Heading>You have successfully save from!, <a className="alert-link" onClick={() => changeUrl(`/survey/${uniqueId}`)}>Click here</a></Alert.Heading>
-         </Alert>}
+         </Alert>} */}
     </div>
   );
 };
