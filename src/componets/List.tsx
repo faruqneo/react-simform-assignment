@@ -23,7 +23,7 @@ const List = () => {
           <tr>
             <th>#</th>
             <th>From Name</th>
-            <th>From URL</th>
+            <th>From URL (click on urls)</th>
             <th>CreateAt</th>
             <th>Total Response</th>
           </tr>
