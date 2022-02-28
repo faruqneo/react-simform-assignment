@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux";
 import { Form as Element, Question } from "../models";
 import { addQuestionRequest } from "../_redux/actions/formActions/formActions";
 import { push } from "connected-react-router";
-import { random } from "../helper";
+import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
   const [modal, setModal] = useState(false);
   const [fromName, setFromName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
-  const uniqueId: string = random(0, 100).toString();
+  const uniqueId: string = uuidv4();
 
 const handleClose = () => setModal(!modal);
 const submitFrom = (data: Question) => {
